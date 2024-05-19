@@ -1,0 +1,27 @@
+on:
+  pull_request:
+    branches:
+      - '**'
+    
+jobs:
+
+  Continuous-Integration:
+
+    name: Performs linting, formatting on the application
+    runs-on: ubuntu-latest
+    steps:
+
+      - uses: actions/checkout@v3
+      - name: Use Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+
+      - name: Install Dependencies
+        run: npm install --legacy-peer-deps
+      
+      - name: Generate prisma clients
+        run: npm run db:generate
+
+      - name: Run build
+        run: npm run build
