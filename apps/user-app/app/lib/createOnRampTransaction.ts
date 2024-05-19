@@ -2,6 +2,7 @@
 import prisma from "@repo/db/client";
 import { getServerSession } from "next-auth";
 import { authOptions } from "./auth";
+import axios from "axios";
 
 export async function createOnRampTransaction(provider:string, amount:number){
     const session = await getServerSession(authOptions);
@@ -10,7 +11,8 @@ export async function createOnRampTransaction(provider:string, amount:number){
             message:"UnAuthorised request"
         }
     }
-    const token = (Math.random() * 1000).toString();
+    const res = await axios.get('http://localhost:3004/banksimulation')
+    const token = res.data.token;
     await prisma.onRampTransaction.create({
         data:{
             provider,
