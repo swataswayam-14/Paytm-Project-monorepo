@@ -31,6 +31,7 @@ async function fn() {
             data.amount = String(transaction.amount)
         }
         const status = transaction?.status;
+        
         if(status == "Processing"){
             setTimeout(()=>{
                 axios.post('http://localhost:3003/hdfcWebhook', data)
