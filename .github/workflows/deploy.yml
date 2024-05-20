@@ -28,3 +28,15 @@ jobs:
 
     - name: Verify Pushed Image
       run: docker pull swayam14/paytm-monorepo:latest 
+
+    # - name: Deploy to EC2
+    #   uses: appleboy/ssh-action@master
+    #   with:
+    #     host: ${{ secrets.SSH_HOST }}
+    #     username: ${{ secrets.SSH_USERNAME }}
+    #     key: ${{ secrets.SSH_KEY }}
+    #     script: |
+    #       sudo docker pull swayam14/paytm-monorepo:latest
+    #       sudo docker stop bankServer || true
+    #       sudo docker rm bankServer || true
+    #       sudo docker run -d --name bankServer -p 3005:3000 swayam14/paytm-monorepo:latest
