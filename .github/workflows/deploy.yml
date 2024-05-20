@@ -22,7 +22,7 @@ jobs:
       uses: docker/build-push-action@v2
       with:
         context: .
-        file: ./docker/Dockerfile.user
+        file: ./docker/bankServer.user
         push: true
         tags: swayam14/paytm-monorepo:latest
 
