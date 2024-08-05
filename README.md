@@ -7,6 +7,7 @@ This repository leverages Turbo to manage a monorepo for a payment application. 
 * **End-User & Merchant Applications (Next.js):** Two separate Next.js applications cater to the needs of both end-users and merchants. This full-stack approach allows for a dynamic and user-friendly experience.
 * **Unified PostgreSQL Database:** A central PostgreSQL database serves as the single source of truth for all application data. This ensures consistency and simplifies data management across the entire ecosystem.
 
+
 **Benefits of Turbo Monorepo:**
 
 * **Fast Development:** Turbo's caching and optimizations streamline development workflows.
